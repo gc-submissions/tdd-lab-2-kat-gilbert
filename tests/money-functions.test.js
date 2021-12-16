@@ -28,5 +28,17 @@ describe("formatCurrency", () => {
 });
 
 describe("getCoins", () => {
-  test.todo("add getCoins tests here");
+  test("32 cents equals 1 quarter 0 dimes 1 nickel 2 pennies", function() {
+    expect(moneyFunctions.getCoins(32)).toEqual({quarters: 1, dimes: 0, nickels: 1, pennies: 2})
+  });
+  test("10 cents produces: quarters: 0, dimes: 1, nickels: 0, pennies: 0.", function() {
+    expect(moneyFunctions.getCoins(10)).toEqual({quarters: 0, dimes: 1, nickels: 0, pennies: 0})
+  });
+  test("27 cents produces: quarters: 1, dimes: 0, nickels: 0, pennies: 2", function() {
+    expect(moneyFunctions.getCoins(27)).toEqual({quarters: 1, dimes: 0, nickels: 0, pennies: 2})
+  });
+  test("68 cents produces: quarters: 2, dimes: 1, nickels: 1, pennies: 3", function() {
+    expect(moneyFunctions.getCoins(68)).toEqual({quarters: 2, dimes: 1, nickels: 1, pennies: 3})
+  });
+
 });
